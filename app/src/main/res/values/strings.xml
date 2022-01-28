@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ImageDetectionPrototype1</string>
+    <string name="cameraButtonText">카메라</string>
+    <string name="galleryButtonText">갤러리</string>
 </resources>
