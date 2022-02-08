@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ggh54/AndroidStudioProjects/ImageDetectionPrototype1/app/src/main/res/layout/activity_machine_learning.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ggh54/AndroidStudioProjects/ImageDetectionPrototype1/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/ggh54/AndroidStudioProjects/ImageDetectionPrototype1/app/src/main/res/layout/fragment_blank.xml" value="0.2390625" />
+        <entry key="..\:/Users/ggh54/AndroidStudioProjects/ImageDetectionPrototype1/app/src/main/res/layout/main_after.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ggh54/AndroidStudioProjects/ImageDetectionPrototype1/app/src/main/res/layout/main_before.xml" value="0.225" />
       </map>
     </option>
