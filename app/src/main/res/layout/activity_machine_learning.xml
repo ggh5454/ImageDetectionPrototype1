@@ -20,11 +20,13 @@
     <TextView
         android:id="@+id/textViewML"
         android:layout_width="match_parent"
-        android:textSize="25sp"
         android:layout_height="0dp"
         android:gravity="center"
+        android:scrollbars="vertical"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

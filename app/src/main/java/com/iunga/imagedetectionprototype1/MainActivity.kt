@@ -1,32 +1,19 @@
 package com.iunga.imagedetectionprototype1
 
 import android.app.Activity
-import android.content.ContentResolver
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.android.material.internal.ContextUtils.getActivity
-import com.iunga.imagedetectionprototype1.ml.Model1
-import org.tensorflow.lite.DataType
-import org.tensorflow.lite.Interpreter
-import org.tensorflow.lite.support.common.FileUtil
-import org.tensorflow.lite.support.image.ImageProcessor
-import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.support.image.ops.ResizeOp
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.nio.ByteBuffer
 
 
 class MainActivity : AppCompatActivity() {
@@ -119,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         if (resultCode != Activity.RESULT_OK) {
             return
         }
-        var intent = Intent(this, MachineLearningActivity::class.java)
+        val intent = Intent(this, MachineLearningActivity::class.java)
         when (requestCode) {
 
             REQUEST_IMAGE_CAPTURE -> {
@@ -159,14 +146,16 @@ class MainActivity : AppCompatActivity() {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     navigateCamera()
                 } else {
-                    Toast.makeText(this, "권한을 거부하셔씁니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.denyPermission), Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             500 -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     navigateGallery()
                 } else {
-                    Toast.makeText(this, "권한을 거부하셔씁니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.denyPermission), Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
@@ -176,21 +165,21 @@ class MainActivity : AppCompatActivity() {
     private fun showPermissionContextPopup(permission: String) {
         when (permission) {
             android.Manifest.permission.CAMERA -> {
-                AlertDialog.Builder(this).setTitle("카메라 권한이 필요합니다.")
-                    .setMessage("카메라 촬영을 위해서 필요합니다.")
-                    .setPositiveButton("동의하기") { _, _ ->
+                AlertDialog.Builder(this).setTitle(getString(R.string.requestCameraPermission))
+                    .setMessage(getString(R.string.reasonRequestCameraPermission))
+                    .setPositiveButton(getString(R.string.Agree)) { _, _ ->
                         requestPermissions(arrayOf(android.Manifest.permission.CAMERA), 1000)
                     }
-                    .setNegativeButton("취소하기") { _, _ -> }
+                    .setNegativeButton(getString(R.string.Cancel)) { _, _ -> }
                     .create().show()
             }
             android.Manifest.permission.READ_EXTERNAL_STORAGE -> {
-                AlertDialog.Builder(this).setTitle("갤러리 권한이 필요합니다.")
-                    .setMessage("갤러리 사진 선택을 위해서 필요합니다.")
-                    .setPositiveButton("동의하기") { _, _ ->
+                AlertDialog.Builder(this).setTitle(getString(R.string.requestGalleryPermission))
+                    .setMessage(getString(R.string.reasonRequestGalleryPermission))
+                    .setPositiveButton(R.string.Agree) { _, _ ->
                         requestPermissions(arrayOf(android.Manifest.permission.CAMERA), 1000)
                     }
-                    .setNegativeButton("취소하기") { _, _ -> }
+                    .setNegativeButton(R.string.Cancel) { _, _ -> }
                     .create().show()
             }
         }

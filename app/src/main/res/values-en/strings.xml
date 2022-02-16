@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ImageDetectionPrototype1</string>
+    <string name="cameraButtonText">camera</string>
+    <string name="galleryButtonText">gallery</string>
+    <string name="denyPermission">You denied permission.</string>
+    <string name="requestCameraPermission">You need camera permission</string>
+    <string name="reasonRequestCameraPermission">You need camera permission for using camera</string>
+    <string name="requestGalleryPermission">You need gallery permission</string>
+    <string name="Agree">Agree</string>
+    <string name="Cancel">Cancel</string>
+    <string name="reasonRequestGalleryPermission">You need gallery permission for using gallery</string>
+</resources>
